@@ -1,0 +1,7 @@
+{
+  "username": "root",
+  "password": "otwfullstack",
+  "database": "noblelifemission",
+  "host": "localhost",
+  "dialect": "mysql"
+}
