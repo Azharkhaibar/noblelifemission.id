@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const Donasi = () => {
+const Donasi = () => {
   return (
     <div>page</div>
   )
 }
+
+export default Donasi;

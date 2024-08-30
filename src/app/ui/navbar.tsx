@@ -30,7 +30,7 @@ export const Navbar = () => {
                         display="inline-block"
                         _hover={{ color: 'teal.200' }} 
                     >
-                        <NextLink href="/" passHref>
+                        <NextLink href="/main" passHref>
                             <Link
                                 color="black"
                                 fontSize="lg"
@@ -108,7 +108,7 @@ export const Navbar = () => {
                         </MenuList>
                     </Menu>
 
-                    {['portfolio', 'shoppage', 'donasi', 'information'].map((path) => (
+                    {['portfolio', 'shop', 'donasi', 'contact'].map((path) => (
                         <Box
                             key={path}
                             position="relative"
