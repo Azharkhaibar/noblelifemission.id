@@ -1,8 +1,20 @@
 import React from 'react'
-
+import { 
+    Box,
+    Text,
+    Heading,
+    Container,
+    Image
+} from '@chakra-ui/react'
+import { Navbar } from '../ui/navbar'
 const Main = () => {
   return (
-    <div>page</div>
+    <Box>
+        <Navbar />
+        <Box>
+            <Heading>HALOOOO SAYNG</Heading>
+        </Box>
+    </Box>
   )
 }
 
