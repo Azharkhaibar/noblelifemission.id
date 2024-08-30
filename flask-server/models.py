@@ -1,7 +1,7 @@
 from config import db
 
 class Blog(db.Model):  
-    id = db.Column(db.Integer, primary_key=True)  # db.Column harus huruf besar "C", dan "primary_key" typo
+    id = db.Column(db.Integer, primary_key=True)  
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)
     author = db.Column(db.String(50), nullable=False)
