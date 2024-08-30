@@ -1,5 +1,6 @@
 const { where } = require("sequelize");
 const anggotaModels = require("../models/membermodels");
+
 exports.memberPost = async (req, res) => {
   try {
     const { name, nickname, age, email, funfact, ability, hobby, phone_number, description } = req.body;
@@ -20,7 +21,6 @@ exports.memberPost = async (req, res) => {
       data: postResponse,
     });
   } catch (error) {
-    console.error("Failed to post member", error);
     res.status(500).json({
       success: false,
       message: "Error occurred while posting member",
@@ -38,7 +38,6 @@ exports.getMember = async (req, res) => {
       data: getResponse,
     });
   } catch (error) {
-    console.error("Failed to fetch members", error);
     res.status(500).json({
       success: false,
       message: "Error occurred while fetching members",
@@ -51,7 +50,7 @@ exports.getMemberById = async (req, res) => {
   try {
     const id_member = req.params.id;
     const getIdResponse = await anggotaModels.findOne({
-      where: { id_member: id_member },
+      where: { id_member },
     });
 
     if (!getIdResponse) {
@@ -68,7 +67,6 @@ exports.getMemberById = async (req, res) => {
       data: getIdResponse,
     });
   } catch (error) {
-    console.error("Failed to fetch member by ID", error);
     res.status(500).json({
       success: false,
       message: "Error occurred while fetching member by ID",
@@ -82,7 +80,7 @@ exports.UpdateMember = async (req, res) => {
     const { name, nickname, age, email, funfact, ability, hobby, phone_number, description } = req.body;
     const id_member = req.params.id;
 
-    const existingMember = await anggotaModels.findOne({ where: { id_member: id_member } });
+    const existingMember = await anggotaModels.findOne({ where: { id_member } });
 
     if (!existingMember) {
       return res.status(404).json({
@@ -104,9 +102,7 @@ exports.UpdateMember = async (req, res) => {
         description,
       },
       {
-        where: {
-          id_member: id_member,
-        },
+        where: { id_member },
       }
     );
 
@@ -115,7 +111,6 @@ exports.UpdateMember = async (req, res) => {
       message: "Member updated successfully",
     });
   } catch (error) {
-    console.error("Failed to update member", error);
     res.status(500).json({
       success: false,
       message: "Error occurred while updating member",

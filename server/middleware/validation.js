@@ -9,9 +9,9 @@ const ValidateUser = (data) => {
       "string.max": "Username tidak boleh lebih dari 30 karakter.",
       "any.required": "Username wajib diisi.",
     }),
-    password: Joi.string().min(5).max(128).required().pattern(new RegExp("^(?=.*\\d)[A-Za-z\\d]{5,}$")).messages({
+    password: Joi.string().min(5).max(50).required().pattern(new RegExp("^(?=.*\\d)[A-Za-z\\d]{5,}$")).messages({
       "string.min": "Password harus memiliki minimal 5 karakter.",
-      "string.max": "Password tidak boleh lebih dari 128 karakter.",
+      "string.max": "Password tidak boleh lebih dari 50 karakter.",
       "string.pattern.base": "Password harus mengandung setidaknya satu angka.",
       "any.required": "Password wajib diisi.",
     }),
