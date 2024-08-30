@@ -11,7 +11,7 @@ const Main = () => {
   return (
     <Box>
         <Navbar />
-        <Box>
+      <Box w="100%" h="300vh" bg="#000000">
             <Heading>HALOOOO SAYNG</Heading>
         </Box>
     </Box>
