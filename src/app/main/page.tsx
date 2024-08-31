@@ -23,6 +23,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { blogDummy } from '../data/blog';
 import NextLink from 'next/link';
+
 import Link from 'next/link';
 import MemberCard from '../components/card';
 import Slider from 'react-slick';
@@ -143,7 +144,7 @@ const Main: React.FC = () => {
                 zIndex="1"
                 bgGradient="linear(to-r, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7))" 
                 bgClip="text" 
-                
+                fontFamily="Inter, sans-serif"
               >
                 Meet the Team Driving <br /> Our Vision and Mission Forward
               </Heading>
@@ -199,6 +200,7 @@ const Main: React.FC = () => {
             bgGradient="conic-gradient(from 0deg, orange, orangered, orange)"
             pos="absolute"
             borderRadius="50%" 
+            fontFamily="Inter, sans-serif"
           >
           </Box>
 
@@ -212,7 +214,7 @@ const Main: React.FC = () => {
             borderRadius="md" 
             mb="0"
           >
-            <Text fontSize="18px" mb="2" fontWeight="medium">
+            <Text fontSize="18px" mb="2" fontWeight="medium" opacity="0.6">
               Know our team
             </Text>
             <Box position="relative" display="inline-block">
@@ -226,7 +228,7 @@ const Main: React.FC = () => {
                 position="relative"
                 zIndex="1"
               >
-                MEMBER
+                Member
               </Heading>
               <Box
                 position="absolute"
@@ -334,7 +336,7 @@ const Main: React.FC = () => {
                   <Image src={blog.url} w="100%" />
                   <Box>
                     <Text pt="2%" fontSize="18px" color="white">{blog.kategori}</Text>
-                    <Heading color="white" fontSize="28px">{blog.Headline}</Heading>
+                    <Heading color="white" fontSize="28px" fontFamily="Inter, sans-serif">{blog.Headline}</Heading>
                   </Box>
                 </Box>
               </Box>
@@ -350,34 +352,60 @@ const Main: React.FC = () => {
           >
 
         </Box>
-        <Box w="100%" h="80vh" m="auto">
-          <Box w="100%" h="100%" display="flex" px="20" p="20" justifyContent="center" m="auto">
-            <Box display="flex" flexDirection="column" p={4} w="40%" h="100%" pt="10">
-              <Heading as="h2" size="lg" mb={2} color="white">Become an NLM Insider</Heading>
-              <Text mb={4} color="white">Subscribe to the newsletter</Text>
+
+        {/* FOOTER */}
+        <Box w="100%" h="55vh" m="auto" p={4}>
+          <Box
+            w="100%"
+            h="100%"
+            display="flex"
+            px="10%"
+            py="7%"
+            gap={8}
+            justifyContent="space-between"
+          >
+            <Box
+              display="flex"
+              flexDirection="column"
+              p={4}
+              w="40%"
+              h="100%"
+              bg="rgba(0, 0, 0, 0.5)"
+              borderRadius="md"
+              boxShadow="md"
+            >
+              <Heading as="h2" fontSize="40px" mb={2} color="white" fontFamily="Inter, sans-serif">
+                Become an NLM Insider
+              </Heading>
+              <Text mb={4} color="white" fontSize="23px" opacity="0.5" fontFamily="Inter, sans-serif">
+                Subscribe to the newsletter
+              </Text>
               <Box as="form" display="flex" flexDirection="column" gap={4}>
                 <Input
                   placeholder="Your First Name"
                   type="text"
-                  mb={2}
-                  p="4%"
-                  borderRadius="35px"
+                  p="6%"
+                  borderRadius="10px"
                   required
                 />
                 <Input
                   placeholder="Your Email Address"
                   type="email"
-                  mb={4}
-                  p="4%"
-                  borderRadius="35px"
+                  p="6%"
+                  borderRadius="10px"
                   required
                 />
-                <Button colorScheme="teal" type="submit" borderRadius="35px">Subscribe</Button>
+                <Button colorScheme="teal" type="submit" borderRadius="md">
+                  Subscribe
+                </Button>
               </Box>
             </Box>
-            <Box w="30%" h="100%">
-              <Box display="flex" flexDirection="column" pt="10">
-                <Heading as="h2" size="lg" mb={4} color="white">Menu</Heading>
+
+            <Box w="30%" h="100%" bg="rgba(0, 0, 0, 0.5)" borderRadius="md" p={4}>
+              <Box display="flex" flexDirection="column" pl="40%">
+                <Heading as="h2" size="lg" mb={4} color="white" fontFamily="Inter, sans-serif">
+                  Menu
+                </Heading>
                 <Box color="white">
                   <NextLink href="/" passHref>
                     <Text as="a" fontSize="lg" mb={2} display="block">
@@ -407,8 +435,49 @@ const Main: React.FC = () => {
                 </Box>
               </Box>
             </Box>
-            <Box w="30%" h="100%">
 
+            <Box w="30%" h="100%" bg="rgba(0, 0, 0, 0.5)" borderRadius="md" p={4}>
+              <Box display="flex" flexDirection="column">
+                <Heading as="h2" size="lg" mb={4} color="white" fontFamily="Inter, sans-serif">
+                  Additional Menu
+                </Heading>
+                <Box color="white">
+                  <NextLink href="/" passHref>
+                    <Text as="a" fontSize="lg" mb={2} display="block">
+                      Sertifikasi
+                    </Text>
+                  </NextLink>
+                  <NextLink href="/portfolio" passHref>
+                    <Text as="a" fontSize="lg" mb={2} display="block">
+                      Visi dan Misi
+                    </Text>
+                  </NextLink>
+                  <NextLink href="/shop" passHref>
+                    <Text as="a" fontSize="lg" mb={2} display="block">
+                      Blog
+                    </Text>
+                  </NextLink>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+          <Heading textAlign="center" color="white" fontSize="170px" fontFamily="Inter, sans-serif">
+            NobleLifeMission
+          </Heading>
+          <Box
+            borderTop="1px solid #3d3019"
+            w="1375px"
+            m="auto"
+            h="20vh"
+            p={4}
+            textAlign="center"
+            color="white"
+            bg="rgba(0, 0, 0, 0.7)"
+          >
+            <Box display="flex" justifyContent="space-between" alignItems="center" gap={2}>
+              <Text fontSize="sm">Copyright © 2024 • noblelifemission</Text>
+              <Text>Build with: <span style={{color: "orange"}}>Next, typescript, express, flask, react</span></Text>
+              <Text fontSize="sm">Made with ❤ by Someone</Text>
             </Box>
           </Box>
         </Box>
