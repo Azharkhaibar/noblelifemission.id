@@ -13,7 +13,8 @@ import '../design/shinetext.scss'
 import SocialMediaIcons from '../icons/verticalicons';
 import { PhoneIcon } from '@chakra-ui/icons';
 import '../design/btn.scss'
-import StyledBox from '../components/styledbox';
+import StyledBox, { Pattern } from '../components/styledbox';
+import '../design/webkit-scroll.scss'
 import useOnScreen from '../components/scrolldetection';
 import AnimatedButton from '../components/btnmain';
 import { Navbar } from '../ui/navbar'
@@ -24,6 +25,7 @@ const Main: React.FC = () => {
   useEffect(() => {
     setIsShining(true);
   }, []);
+  
   return (
     <Box bg="#000000" className='content'>
       <Navbar />
@@ -89,8 +91,11 @@ const Main: React.FC = () => {
             </Box>
           </Stack>
         </Box>
+
+        {/* ABOUT */}
         <Box w="100%" maxH="80vh" pos="relative" overflow="hidden">
-          <StyledBox /> {/* Positioned absolutely behind the content */}
+          <StyledBox />
+          <Pattern />
           <Box
             w="100%"
             maxH="80vh"
@@ -103,10 +108,13 @@ const Main: React.FC = () => {
               <Heading
                 ref={headingRef}
                 pt="5%"
-                className={`shiny-text ${isVisible ? 'visible' : ''}`}
-                color="white"
-                fontSize="55px"
+                
+                fontSize="60px" // Increase the font size for better visibility
+                fontWeight="bold" // Make the font weight bold for a more pronounced look
                 zIndex="1"
+                bgGradient="linear(to-r, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7))" // Enhanced gradient for a more visible effect
+                bgClip="text" // Clip the gradient to the text // Add 'visible' class if needed
+                
               >
                 Meet the Team Driving <br /> Our Vision and Mission Forward
               </Heading>
@@ -145,6 +153,40 @@ const Main: React.FC = () => {
                 </div>
                 <div className="button-text">Learn more</div>
               </button>
+            </Box>
+          </Box>
+        </Box>
+
+        {/* MEMBER */}
+        <Box>
+          <Box
+            textAlign="center"
+            pt="5%"
+            bg="black" // Black background
+            color="gray.100"
+            boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)" // Subtle shadow for depth
+            borderRadius="md" // Rounded corners
+          >
+            <Text fontSize="18px" mb="2" fontWeight="medium">
+              Know our team
+            </Text>
+            <Heading
+              fontSize="50px"
+              fontWeight="bold"
+              letterSpacing="tight"
+              bgGradient="linear(to-r, gray.200, gray.400)"
+              bgClip="text"
+            >
+              MEMBER
+            </Heading>
+          </Box>
+          {/* SLIDER ABOUT */}
+          <Box w="100%" h="80vh">
+            <Box display="flex" w="100%" h="100%" px="20">
+              <Box w="30%" h="100%">
+                <Heading color="white">Temui para ahli kami yang penuh dedikasi. Dengan keahlian dan inovasi, mereka siap membantu Anda mencapai kesuksesan.</Heading>
+              </Box>
+              <Box w="70%" h="100%"></Box>
             </Box>
           </Box>
         </Box>

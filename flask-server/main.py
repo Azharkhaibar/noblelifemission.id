@@ -2,6 +2,7 @@ from flask import jsonify, request
 from config import app, db  
 from models import Blog
 from contactmodels import Contact
+from aboutmodels import History
 
 # get all blog data
 @app.route('/blog', methods=["GET"])
@@ -124,8 +125,8 @@ def create_contact():
     
     return jsonify({"message": "data contact berhasil di buat"}, 201)
 
+# HISTORY
 
-3
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

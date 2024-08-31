@@ -1,4 +1,3 @@
-// components/StyledBox.tsx
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 
@@ -36,4 +35,38 @@ const StyledBox: React.FC = () => {
     );
 };
 
+const Pattern: React.FC = () => {
+    return (
+        <Box
+            position="absolute"
+            top="0"
+            left="0"
+            width="100%"
+            height="100%"
+            backgroundColor="orange"
+            zIndex="-1"
+            sx={{
+                backgroundImage: `
+                    conic-gradient(from 0deg, orange, orangered, orange)
+                `,
+                backgroundSize: '200% 200%',
+                backgroundPosition: '0% 0%',
+                '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    top: '0',
+                    left: '0',
+                    width: '100%',
+                    height: '50%',
+                    backgroundColor: 'inherit',
+                    borderRadius: '50% 50% 0 0',
+                    clipPath: 'ellipse(50% 50% at 50% 100%)',
+                }
+            }}
+        />
+    );
+};
+
+
 export default StyledBox;
+export { Pattern };
