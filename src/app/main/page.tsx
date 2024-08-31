@@ -12,6 +12,7 @@ import {
 import SocialMediaIcons from '../icons/verticalicons';
 import { PhoneIcon } from '@chakra-ui/icons';
 import '../design/webkit-scroll.scss'
+import AnimatedButton from '../components/btnmain';
 import { Navbar } from '../ui/navbar'
 const Main = () => {
   return (
@@ -25,7 +26,8 @@ const Main = () => {
           bgRepeat="no-repeat"
           bgSize="cover"
           display="flex"
-          borderRadius="20px"
+          mt="8"
+          borderRadius="20px 20px 20px 20px"
           pos="relative"
           alignItems="center"
           justifyContent="center"
@@ -38,7 +40,7 @@ const Main = () => {
             left="0"
             w="100%"
             h="20%"
-            bgGradient="linear(to-t, rgba(0, 0, 0, 0.7), transparent)"
+            bgGradient="linear(to-t, black, transparent)"
             zIndex="1"
           />
           <Stack spacing={6} maxW="lg" mb="5%">
@@ -49,7 +51,7 @@ const Main = () => {
               fontWeight="bold"
               letterSpacing="wide"
             >
-              We Are <Text as="span" bgGradient="linear(to-r, orange.300, yellow.400)" bgClip="text">Jomok</Text> Community
+              We Are <Text as="span" bgGradient="linear(to-r, orange.300, yellow.400)" bgClip="text">NLM</Text>
             </Heading>
             <Text
               fontSize={{ base: 'md', md: 'lg', lg: 'xl' }} 
@@ -61,17 +63,7 @@ const Main = () => {
               <SocialMediaIcons />
             </Box>
             <Box gap="4" display="flex" justifyContent="center" pt="5">
-              <Button
-                size="lg"
-                colorScheme="teal"
-                bg="white"
-                color="teal.500"
-                _hover={{ bg: 'teal.100', color: 'teal.700' }}
-                borderRadius="full"
-                px={8}
-              >
-                Portfolio
-              </Button>
+              <AnimatedButton />
               <Button
                 size="lg"
                 colorScheme="teal"
