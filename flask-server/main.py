@@ -3,6 +3,7 @@ from config import app, db
 from models import Blog
 from contactmodels import Contact
 from aboutmodels import History
+from homecontact import HomeContact
 
 # get all blog data
 @app.route('/blog', methods=["GET"])
@@ -126,6 +127,13 @@ def create_contact():
     return jsonify({"message": "data contact berhasil di buat"}, 201)
 
 # HISTORY
+
+# HOME CONTACT
+@app.route('/home_contact', methods=["GET"])
+def GetHomeContact():
+    getContactsHome = HomeContact.query.all()
+    contact_home = list(map(lambda x: x.home_contact_json(), getContactsHome))
+    return jsonify({"Home contacts": contact_home})
 
 if __name__ == '__main__':
     with app.app_context():

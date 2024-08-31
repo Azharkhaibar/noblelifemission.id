@@ -385,6 +385,7 @@ const Main: React.FC = () => {
                   placeholder="Your First Name"
                   type="text"
                   p="6%"
+                  color="white"
                   borderRadius="10px"
                   required
                 />
@@ -392,6 +393,7 @@ const Main: React.FC = () => {
                   placeholder="Your Email Address"
                   type="email"
                   p="6%"
+                  color="white"
                   borderRadius="10px"
                   required
                 />
