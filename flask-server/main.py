@@ -1,9 +1,10 @@
-from flask import jsonify, request
-from config import app, db  
+from flask import Flask, jsonify, request
+from config import mail, app, db  
 from models import Blog
 from contactmodels import Contact
 from aboutmodels import History
 from homecontact import HomeContact
+from flask_mail import Mail, Message
 
 # get all blog data
 @app.route('/blog', methods=["GET"])
@@ -135,6 +136,43 @@ def GetHomeContact():
     contact_home = list(map(lambda x: x.home_contact_json(), getContactsHome))
     return jsonify({"Home contacts": contact_home})
 
+
+@app.route('/create_home_contact', methods=["POST"])
+def createContactHome():
+    firstname = request.json.get("firstname")
+    email = request.json.get("email")
+    if not firstname or not email:
+        return (
+            jsonify({"messages": "tidak boleh kosong"}), 400,
+        )
+    contact_home = HomeContact(firstname=firstname, email=email)
+    try:
+        db.session.add(contact_home)
+        db.session.commit()
+    
+        msg = Message("Thank you for contacting us!", recipients=[email])
+        msg.body = f"Dear {firstname},\n\nThank you for reaching out to us. We will get back to you shortly."
+        
+        mail.send(msg)
+        
+        return jsonify({"messages": "Contact created and email sent!"}), 201
+    except Exception as e:
+        return jsonify({"messages" : str(e)}), 400
+
+@app.route('/home_contact/<int:contacthome_id>', methods=["GET"])
+def get_contacthome(contacthome_id):
+    getContactHome = HomeContact.query.get(contacthome_id)
+    if not getContactHome:
+        return jsonify({
+            "message": "contact home id not found"
+        }), 400
+        
+    return jsonify({
+        "id": getContactHome.id,
+        "firstname": getContactHome.firstname,
+        "email": getContactHome.email,
+    }), 200
+    
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

@@ -152,6 +152,7 @@ const Main: React.FC = () => {
                 src='/images/about.jpg'
                 pt="3%"
                 w="95%"
+                alt='gambar'
                 h="600px"
                 objectFit="cover"
                 borderRadius="30px"
@@ -280,6 +281,7 @@ const Main: React.FC = () => {
                         src={member.url}
                         w="100%"
                         maxH="420px"
+                        alt='gambar'
                         objectFit="cover"
                         borderRadius="100px 0px 100px 0px"
                       />
@@ -333,7 +335,7 @@ const Main: React.FC = () => {
             {blogDummy.map((blog, index) => (
               <Box key={index} display="flex">
                 <Box w="467px" h="400px">
-                  <Image src={blog.url} w="100%" />
+                  <Image src={blog.url} w="100%" alt="gambar" />
                   <Box>
                     <Text pt="2%" fontSize="18px" color="white">{blog.kategori}</Text>
                     <Heading color="white" fontSize="28px" fontFamily="Inter, sans-serif">{blog.Headline}</Heading>
