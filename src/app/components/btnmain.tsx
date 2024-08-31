@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Box, Text } from '@chakra-ui/react';
+import { Button, Box, Text, useStyleConfig } from '@chakra-ui/react';
 
 function AnimatedButton() {
     const [hovered, setHovered] = useState(false);
@@ -167,4 +167,85 @@ function AnimatedButton() {
     );
 }
 
+const AnimatedButtonStyled = () => {
+    return (
+        <Button
+            sx={{
+                position: 'relative',
+                overflow: 'hidden',
+                border: '1px solid #18181a',
+                color: '#18181a',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '20px',
+                lineHeight: '15px',
+                px: '70px',
+                py: '20px',
+                m: 'auto',
+                mt: '12',
+                textDecoration: 'none',
+                cursor: 'pointer',
+                background: '#fff',
+                userSelect: 'none',
+                touchAction: 'manipulation',
+                overflow: 'hidden',
+                borderRadius: '50px', // Add this line to make the button more rounded
+                '&:after': {
+                    content: `""`,
+                    position: 'absolute',
+                    bottom: '-50%',
+                    left: '0',
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'black',
+                    transformOrigin: 'bottom center',
+                    transition: 'transform 600ms cubic-bezier(0.48, 0, 0.12, 1)',
+                    transform: 'skewY(9.3deg) scaleY(0)',
+                    zIndex: '5',
+                },
+                '&:hover:after': {
+                    transform: 'skewY(9.3deg) scaleY(2)',
+                },
+                '&:hover span:last-of-type': {
+                    transform: 'translateY(0%) translateX(-50%)',
+                    opacity: 1,
+                    transition: 'all 900ms cubic-bezier(0.48, 0, 0.12, 1)',
+                },
+            }}
+        >
+            <Box
+                as="span"
+                sx={{
+                    position: 'relative',
+                    transition: 'color 600ms cubic-bezier(0.48, 0, 0.12, 1)',
+                    zIndex: '10',
+                }}
+            >
+                Details
+            </Box>
+            <Box
+                as="span"
+                sx={{
+                    color: 'white',
+                    display: 'block',
+                    position: 'absolute',
+                    bottom: '37%',
+                    left: '52%',
+                    transform: 'translateY(50%) translateX(-50%)',
+                    transition: 'all 500ms cubic-bezier(0.48, 0, 0.12, 1)',
+                    zIndex: '20',
+                    opacity: 0,
+                    height: '14px',
+                    lineHeight: '13px',
+                    whiteSpace: 'nowrap',
+                }}
+            >
+                All Member
+            </Box>
+        </Button>
+    );
+};
+
 export default AnimatedButton;
+export {AnimatedButtonStyled};

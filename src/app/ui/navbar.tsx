@@ -1,5 +1,4 @@
 "use client";
-
 import React from 'react';
 import {
     Box,
@@ -16,7 +15,6 @@ import {
 } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
-
 export const Navbar = () => {
     return (
         <Box w="100%" h="8vh" bgGradient="linear(to left, black, #202020)" px="85">
@@ -75,18 +73,18 @@ export const Navbar = () => {
                             boxShadow="md"
                             color="white"
                             minW="200px"
-                            p={0} // Remove padding to control padding on MenuItems
+                            p={0} 
                         >
                             <NextLink href="/about/list-member" passHref>
                                 <MenuItem
                                     _hover={{ bg: 'teal.700', color: 'white', borderBottom: '2px solid teal.200' }}
                                     _focus={{ bg: 'teal.700' }}
                                     bg="white"
-                                    p={4} // Add padding for better spacing
+                                    p={4} 
                                     border="none"
                                     color="black"
                                     fontWeight="600"
-                                    _active={{ bg: 'teal.600' }} // Optional: Different color when active
+                                    _active={{ bg: 'teal.600' }} 
                                 >
                                     List Member
                                 </MenuItem>
@@ -95,12 +93,12 @@ export const Navbar = () => {
                                 <MenuItem
                                     _hover={{ bg: 'teal.700', color: 'white', borderBottom: '2px solid teal.200' }}
                                     _focus={{ bg: 'teal.700' }}
-                                    p={4} // Add padding for better spacing
+                                    p={4}
                                     border="none"
                                     bg="white"
                                     color="black"
                                     fontWeight="600"
-                                    _active={{ bg: 'teal.600' }} // Optional: Different color when active
+                                    _active={{ bg: 'teal.600' }} 
                                 >
                                     Visi Misi
                                 </MenuItem>
