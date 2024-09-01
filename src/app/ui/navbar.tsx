@@ -76,7 +76,7 @@ export const Navbar = () => {
                             zIndex="100"
                             p={0} 
                         >
-                            <NextLink href="/about/list-member" passHref>
+                            <NextLink href="/listmember" passHref>
                                 <MenuItem
                                     _hover={{ bg: 'teal.700', color: 'white', borderBottom: '2px solid teal.200' }}
                                     _focus={{ bg: 'teal.700' }}
