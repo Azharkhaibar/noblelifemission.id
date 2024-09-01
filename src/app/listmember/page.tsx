@@ -85,11 +85,10 @@ const ListMember = () => {
                             fontSize="20px"
                             fontWeight="500"
                             mt="2%"
-                            mx="auto"  // Center horizontally using margin auto
-                            justifyContent="center"  // Center items horizontally
-                            maxW="1200px"  // Optional: constrain width for better centering
-                            w="100%"  // Ensure it takes full width of its container
-                            textAlign="center"  // Center text
+                            mx="auto" 
+                            justifyContent="center" 
+                            w="100%" 
+                            textAlign="center"  
                         >
                             <Icon as={FaHome} mr="2" />
                             {['Home', 'Listmembers'].map((breadcrumb, index) => (
