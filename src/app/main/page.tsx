@@ -16,6 +16,7 @@ import '../design/shinetext.scss'
 import SocialMediaIcons from '../icons/verticalicons';
 import { PhoneIcon } from '@chakra-ui/icons';
 import '../design/btn.scss'
+import axios, { AxiosError } from 'axios'
 import StyledBox, { Pattern } from '../components/styledbox';
 import '../design/webkit-scroll.scss'
 import { MemberShow } from '../data/member';
@@ -23,7 +24,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { blogDummy } from '../data/blog';
 import NextLink from 'next/link';
-
 import Link from 'next/link';
 import MemberCard from '../components/card';
 import Slider from 'react-slick';
@@ -34,6 +34,40 @@ const Main: React.FC = () => {
   const [isShining, setIsShining] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const isVisible = useOnScreen(headingRef);
+  const [ firstnameContact, setFirstnameContact ] = useState('')
+  const [ emailContact, setEmailContact ] = useState('')
+  const handleSubmitHomeContact = async (e: React.FormEvent) => {
+    try {
+      console.log('sending data:', {
+        firstnameContact,
+        emailContact
+      });
+
+      const PostResponse = await axios.post('http://127.0.0.1:5001/create_home_contact', {
+        firstname: firstnameContact,
+        emailContact
+      });
+
+      console.log('data succesfully sent:', PostResponse.data);
+      alert('Message sent successfully');
+      setFirstnameContact('')
+      setEmailContact("")
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const status = error.response?.status;
+        const data = error.response?.data
+        console.error('Axios error Occured', {
+          status,
+          data,
+          message: error.message
+        });
+        alert(`Failed to send message, Status " ${status}. please try again`)
+      } else {
+        console.error('Unexpected error occured :', error);
+        alert('An unexpected error occurred. Please try again.');
+      }
+    }
+  }
   useEffect(() => {
     setIsShining(true);
   }, []);
@@ -324,8 +358,8 @@ const Main: React.FC = () => {
           </Box>
         </Box>
         <Box w="100%" h="60vh" px="4%">
-          <Box w="180px" p="5">
-            <Heading p="3" bg="grey" fontSize="24px">
+          <Box w="280px" p="2">
+            <Heading p="3" fontSize="45px" fontFamily="Inter, sans-serif" color="white">
               Read This
             </Heading>
           </Box>
