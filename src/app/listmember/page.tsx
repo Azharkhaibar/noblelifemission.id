@@ -56,7 +56,7 @@ const ListMember = () => {
                         left="0"
                         w="100%"
                         h="100%"
-                        bg="rgba(0, 0, 0, 0.5)" // Add a dark overlay to ensure text visibility
+                        bg="rgba(0, 0, 0, 0.5)" 
                         zIndex="1"
                     />
                     <Box
