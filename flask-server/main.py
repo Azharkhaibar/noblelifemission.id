@@ -155,7 +155,7 @@ def createContactHome():
         
         mail.send(msg)
         
-        return jsonify({"messages": "Contact created and email sent!"}), 201
+        return jsonify({"messages": "Kontak berhasil di kirim dan di buat"}), 201
     except Exception as e:
         return jsonify({"messages" : str(e)}), 400
 

@@ -9,8 +9,10 @@ import {
     Button,
     IconButton,
     Image,
-    Icon
+    Icon,
+    Input
 } from '@chakra-ui/react'
+import NextLink from 'next/link';
 import '../design/webkit-scroll.scss'
 import { MemberList } from '../data/memberlist'
 import { FaWhatsapp, FaInstagram, FaLinkedin } from 'react-icons/fa';
@@ -18,7 +20,7 @@ import { FaHome, FaChevronRight } from 'react-icons/fa';
 
 const ListMember = () => {
     return (
-        <Box w="100%" h="300vh" bg="black">
+        <Box w="100%" h="500vh" bg="black">
             <Navbar />
             <Box w="100%" h="100vh" >
                 <Box
@@ -85,10 +87,10 @@ const ListMember = () => {
                             fontSize="20px"
                             fontWeight="500"
                             mt="2%"
-                            mx="auto" 
-                            justifyContent="center" 
-                            w="100%" 
-                            textAlign="center"  
+                            mx="auto"
+                            justifyContent="center"
+                            w="100%"
+                            textAlign="center"
                         >
                             <Icon as={FaHome} mr="2" />
                             {['Home', 'Listmembers'].map((breadcrumb, index) => (
@@ -126,23 +128,23 @@ const ListMember = () => {
                             {["/images/member/azharganteg.jpg", "/images/member/sidqi.jpg", "/images/member/sulthon.jpg"].map((pict, index) => (
                                 <Box
                                     key={index}
-                                    w="50px" 
-                                    h="50px"  
-                                    borderRadius="50%" 
-                                    overflow="hidden"  
-                                    border="3px solid white" 
-                                    mx="-15px" 
+                                    w="50px"
+                                    h="50px"
+                                    borderRadius="50%"
+                                    overflow="hidden"
+                                    border="3px solid white"
+                                    mx="-15px"
                                 >
                                     <Image
                                         src={pict}
                                         alt={`Member ${index}`}
-                                        objectFit="cover"  
+                                        objectFit="cover"
                                         w="100%"
                                         h="100%"
                                     />
                                 </Box>
                             ))}
-                            <Box ml="30px"> 
+                            <Box ml="30px">
                                 <Text mb="0" color="white" fontSize="24px">Member</Text>
                             </Box>
                         </Box>
@@ -241,6 +243,189 @@ const ListMember = () => {
                                 </Box>
                             </Box>
                         ))}
+                    </Box>
+
+                    <Box w="100%" h="50vh" mt="3%">
+                        <Box
+                            w="82%"
+                            h="100%"
+                            bg="purple"
+                            m="auto"
+                            borderRadius="25px"
+                            display="flex"
+                            border="1px solid rgba(255, 255, 255, 0.2)"
+                            position="relative"
+                        >
+                            <Box w="60%" position="relative">
+                                <Image
+                                    src="/images/banner.jpg"
+                                    alt="foto-bersama"
+                                    w="100%"
+                                    h="479px"
+                                    objectFit="cover"
+                                    borderRadius="25px 0px 0px 25px"
+                                />
+                                <Box
+                                    position="absolute"
+                                    top="0"
+                                    right="0"
+                                    w="35%"
+                                    h="100%"
+                                    bg="linear-gradient(to left, black, transparent)"
+                                    borderRadius="25px 0px 0px 25px"
+                                >
+                                    {/* Tambahkan konten overlay di sini jika diperlukan */}
+                                </Box>
+                            </Box>
+                            <Box
+                                w="43%"
+                                bg="black"
+                                h="100%"
+                                borderRadius="0px 25px 25px 0px"
+                            >
+                                <Box color="white" p="5%">
+                                    <Text fontSize="18px" opacity="0.6" pt="18%">Lets Connect</Text>
+                                    <Heading fontFamily="Inter, sans-serif" pt="3%"
+                                        bgClip="text"
+                                        bgGradient="linear(to-r, #ffffff, #dcdcdc)"
+                                        boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
+                                        textShadow="1px 1px 3px rgba(0, 0, 0, 0.2)"
+                                    >We're here to listen and support you, so feel free to speak up</Heading>
+                                    <Text p="2%" bg="white" color="black" w="300px" mt="4%" borderRadius="25px" textAlign="center">Get In Touch</Text>
+                                </Box>
+                            </Box>
+                        </Box>
+                    </Box>
+
+                    {/* CONTACT SECTION */}
+                    <Box w="100%" h="55vh" m="auto" p={4}>
+                        <Box
+                            w="100%"
+                            h="100%"
+                            display="flex"
+                            px="10%"
+                            py="7%"
+                            gap={8}
+                            justifyContent="space-between"
+                        >
+                            <Box
+                                display="flex"
+                                flexDirection="column"
+                                p={4}
+                                w="40%"
+                                h="100%"
+                                bg="rgba(0, 0, 0, 0.5)"
+                                borderRadius="md"
+                                boxShadow="md"
+                            >
+                                <Heading as="h2" fontSize="40px" mb={2} color="white" fontFamily="Inter, sans-serif">
+                                    Become an NLM Insider
+                                </Heading>
+                                <Text mb={4} color="white" fontSize="23px" opacity="0.5" fontFamily="Inter, sans-serif">
+                                    Subscribe to the newsletter
+                                </Text>
+                                <Box as="form" display="flex" flexDirection="column" gap={4}>
+                                    <Input
+                                        placeholder="Your First Name"
+                                        type="text"
+                                        p="6%"
+                                        color="white"
+                                        borderRadius="10px"
+                                        required
+                                    />
+                                    <Input
+                                        placeholder="Your Email Address"
+                                        type="email"
+                                        p="6%"
+                                        color="white"
+                                        borderRadius="10px"
+                                        required
+                                    />
+                                    <Button colorScheme="teal" type="submit" borderRadius="md">
+                                        Subscribe
+                                    </Button>
+                                </Box>
+                            </Box>
+
+                            <Box w="30%" h="100%" bg="rgba(0, 0, 0, 0.5)" borderRadius="md" p={4}>
+                                <Box display="flex" flexDirection="column" pl="40%">
+                                    <Heading as="h2" size="lg" mb={4} color="white" fontFamily="Inter, sans-serif">
+                                        Menu
+                                    </Heading>
+                                    <Box color="white">
+                                        <NextLink href="/" passHref>
+                                            <Text as="a" fontSize="lg" mb={2} display="block">
+                                                Home
+                                            </Text>
+                                        </NextLink>
+                                        <NextLink href="/portfolio" passHref>
+                                            <Text as="a" fontSize="lg" mb={2} display="block">
+                                                Portfolio
+                                            </Text>
+                                        </NextLink>
+                                        <NextLink href="/shop" passHref>
+                                            <Text as="a" fontSize="lg" mb={2} display="block">
+                                                Shop
+                                            </Text>
+                                        </NextLink>
+                                        <NextLink href="/donasi" passHref>
+                                            <Text as="a" fontSize="lg" mb={2} display="block">
+                                                Donasi
+                                            </Text>
+                                        </NextLink>
+                                        <NextLink href="/contact" passHref>
+                                            <Text as="a" fontSize="lg" mb={2} display="block">
+                                                Contact
+                                            </Text>
+                                        </NextLink>
+                                    </Box>
+                                </Box>
+                            </Box>
+
+                            <Box w="30%" h="100%" bg="rgba(0, 0, 0, 0.5)" borderRadius="md" p={4}>
+                                <Box display="flex" flexDirection="column">
+                                    <Heading as="h2" size="lg" mb={4} color="white" fontFamily="Inter, sans-serif">
+                                        Additional Menu
+                                    </Heading>
+                                    <Box color="white">
+                                        <NextLink href="/" passHref>
+                                            <Text as="a" fontSize="lg" mb={2} display="block">
+                                                Sertifikasi
+                                            </Text>
+                                        </NextLink>
+                                        <NextLink href="/portfolio" passHref>
+                                            <Text as="a" fontSize="lg" mb={2} display="block">
+                                                Visi dan Misi
+                                            </Text>
+                                        </NextLink>
+                                        <NextLink href="/shop" passHref>
+                                            <Text as="a" fontSize="lg" mb={2} display="block">
+                                                Blog
+                                            </Text>
+                                        </NextLink>
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Box>
+                        <Heading textAlign="center" color="white" fontSize="170px" fontFamily="Inter, sans-serif">
+                            NobleLifeMission
+                        </Heading>
+                        <Box
+                            borderTop="1px solid #3d3019"
+                            w="1375px"
+                            m="auto"
+                            h="20vh"
+                            p={4}
+                            textAlign="center"
+                            color="white"
+                            bg="rgba(0, 0, 0, 0.7)"
+                        >
+                            <Box display="flex" justifyContent="space-between" alignItems="center" gap={2}>
+                                <Text fontSize="sm">Copyright © 2024 • noblelifemission</Text>
+                                <Text>Build with: <span style={{ color: "orange" }}>Next, typescript, express, flask, react</span></Text>
+                                <Text fontSize="sm">Made with ❤ by Someone</Text>
+                            </Box>
+                        </Box>
                     </Box>
 
 
