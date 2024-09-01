@@ -73,6 +73,7 @@ export const Navbar = () => {
                             boxShadow="md"
                             color="white"
                             minW="200px"
+                            zIndex="100"
                             p={0} 
                         >
                             <NextLink href="/about/list-member" passHref>
