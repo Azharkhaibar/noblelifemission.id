@@ -282,7 +282,7 @@ const Main: React.FC = () => {
           {/* SLIDER ABOUT */}
           <Box
             w="100%"
-            h="75vh"
+            h="69vh"
             px="20"
           >
             <Box
@@ -317,7 +317,7 @@ const Main: React.FC = () => {
                         maxH="420px"
                         alt='gambar'
                         objectFit="cover"
-                        borderRadius="100px 0px 100px 0px"
+                        borderRadius="10px"
                       />
                       <Box w="20%"
                         h="300px"
@@ -357,6 +357,27 @@ const Main: React.FC = () => {
             </Box>
           </Box>
         </Box>
+
+        {/* PICT SECTION */}
+
+        <Box w="100%" h="65vh" bgImage="url('/images/banner.jpg')" pos="relative">
+        <Box w="100%" h='100%' bg="black" opacity="0.1"></Box>
+          <Box
+            w="100%"
+            h="30%"
+            bgGradient="linear(to-b, transparent, black)"
+            opacity="1"  
+            bottom="0"
+            pos="absolute"
+          />
+          <Box pos="absolute" m="auto" textAlign="center" bottom="10%" left="20%">
+            <Heading fontSize="50px" color="orange">We dont do basic here</Heading>
+            <Text fontSize="20px" color="white" opacity="0.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie lectus ac vulputate porttitor. Nulla facilisi.</Text>
+          </Box>
+        </Box>
+
+        {/* MEET TEAM */}
+
         <Box w="100%" h="60vh" px="4%">
           <Box w="280px" p="2">
             <Heading p="3" fontSize="45px" fontFamily="Inter, sans-serif" color="white">
