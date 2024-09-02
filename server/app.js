@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const getRouter = require("./routes/router");
-const PORT = 3000;
+const PORT = 4000;
 
 // Middleware
 app.use(cors()); // Jika Anda menggunakan CORS

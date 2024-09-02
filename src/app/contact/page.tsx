@@ -48,7 +48,6 @@ const Contact: React.FC = () => {
 
   const handleSubmitContactTouch = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!formData.agreement) {
       alert('You must agree to the terms and privacy policy.');
       return;
