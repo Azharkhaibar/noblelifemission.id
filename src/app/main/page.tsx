@@ -28,7 +28,7 @@ import Link from 'next/link';
 import MemberCard from '../components/card';
 import Slider from 'react-slick';
 import useOnScreen from '../components/scrolldetection';
-import AnimatedButton, { AnimatedButtonStyled } from '../components/btnmain';
+import AnimatedButton, { AnimatedButtonStyled, AnimatedButtonStyled2 } from '../components/btnmain';
 import { Navbar } from '../ui/navbar'
 const Main: React.FC = () => {
   const [isShining, setIsShining] = useState(false);
@@ -370,15 +370,152 @@ const Main: React.FC = () => {
             bottom="0"
             pos="absolute"
           />
-          <Box pos="absolute" m="auto" textAlign="center" bottom="10%" left="20%">
-            <Heading fontSize="50px" color="orange">We dont do basic here</Heading>
+          <Box pos="absolute" m="auto" textAlign="center" bottom="50%" left="20%">
+            <Heading fontSize="65px" color="orange">We dont do basic here</Heading>
             <Text fontSize="20px" color="white" opacity="0.7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie lectus ac vulputate porttitor. Nulla facilisi.</Text>
           </Box>
         </Box>
 
         {/* MEET TEAM */}
 
-        <Box w="100%" h="60vh" px="4%">
+        <Box w="100%" h="90vh">
+          <Box m="auto" textAlign="center" color="white">
+            <Heading fontFamily="Inter, sans-serif" fontSize="50px">Meet the team driving Our Vision and <br />Mission forward</Heading>
+          </Box>
+          <Box w="100%" h="100%" display="flex" m="auto" justifyContent="center" pt="4%" pos="relative">
+            <Image
+              src='/images/bg/pngwing.com (7).png'
+              w="100%"
+              h="100%"
+              pos="absolute"
+              top="0"
+              zIndex="0"
+              opacity="0.1"
+              filter="invert(10%) sepia(100%) saturate(100%) hue-rotate(360deg) brightness(100%)"
+            />
+
+            <Box display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+              gap="50px"
+              textAlign="center"
+              h="68%"
+              zIndex="999"
+              w={"20%"}>
+              <Box color="white" zIndex="999">
+                <Heading fontSize="60px">10+</Heading>
+                <Text fontSize="20px">Reviews</Text>
+              </Box>
+              <Box color="white" zIndex="999">
+                <Heading fontSize="60px">5+</Heading>
+                <Text fontSize="20px">Client <br />Colaboration</Text>
+              </Box>
+              <Box color="white" zIndex="999">
+                <Heading fontSize="60px">700+</Heading>
+                <Text fontSize="20px">Certification</Text>
+              </Box>
+            </Box>
+
+            <Box w="55%" h="68%" zIndex="999">
+              <Box w="100%" h="100%" bg="gray" borderRadius="lg" overflow="hidden">
+                <Box
+                  display="flex"
+                  flexWrap="wrap"
+                  justifyContent="center"
+                  h="100%"
+                  w="100%"
+                >
+                  <Image
+                    src='/images/member/azharganteg.jpg'
+                    objectFit="cover"
+                    boxSize="50%"
+                    alt='tes' 
+                  />
+                  <Image
+                    src='/images/member/nopal.jpg'
+                    objectFit="cover"
+                    boxSize="50%"
+                    alt='tes'
+                  />
+                  <Image
+                    src='/images/member/alfath.jpg'
+                    objectFit="cover"
+                    boxSize="50%"
+                    alt='tes'
+                  />
+                  <Image
+                    src='/images/member/azharganteg.jpg'
+                    objectFit="cover"
+                    boxSize="50%"
+                    alt='tes'  
+                  />
+                </Box>
+              </Box>
+              <Text fontSize="18px" p="3%" pt="3%" opacity="0.7" color="white" zIndex="999" textAlign="center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie lectus ac vulputate porttitor. Nulla facilisi. Morbi id orci at turpis luctus tempor. Pellentesque consectetur eget ipsum id euismod. Vivamus vel risus ultricies, cursus tortor quis, semper mauris. </Text>
+              <AnimatedButtonStyled2 />
+            </Box>
+
+            <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+              gap="50px"
+              textAlign="center"
+              
+              h="68%"
+              w={"20%"}
+              
+            >
+              <Box color="white" mb={4} textAlign="center">
+                <Heading fontSize="60px">100+</Heading>
+                <Text fontSize="20px">Contribution</Text>
+              </Box>
+
+              <Box
+                display="flex"
+                flexWrap="wrap"
+                justifyContent="center"
+                alignItems="center"
+                borderRadius="md"
+                
+              >
+                {["/images/member/azharganteg.jpg", "/images/member/sidqi.jpg", "/images/member/sulthon.jpg"].map((pict, index) => (
+                  <Box
+                    key={index}
+                    w="70px"
+                    h="70px"
+                    borderRadius="50%"
+                    overflow="hidden"
+                    border="3px solid white"
+                    mx="-15px"
+                    
+                  >
+                    <Image
+                      src={pict}
+                      alt={`Member ${index}`}
+                      objectFit="cover"
+                      w="100%"
+                      h="100%"
+                    />
+                  </Box>
+                ))}
+              </Box>
+
+              <Box color="white">
+                <Heading fontSize="60px">500+</Heading>
+                <Text fontSize="20px">Creation</Text>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+
+        <Box w="100%" h="50vh" bg="blue">
+          <Box></Box>
+        </Box>
+
+        <Box w="100%" h="60vh" px="4%" pt="8%">
           <Box w="280px" p="2">
             <Heading p="3" fontSize="45px" fontFamily="Inter, sans-serif" color="white">
               Read This
@@ -406,6 +543,7 @@ const Main: React.FC = () => {
           bgAttachment="fixed"
           bgRepeat="no-repeat"
           bgSize="cover"
+          mt="4%"
           >
 
         </Box>
