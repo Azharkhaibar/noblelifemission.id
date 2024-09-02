@@ -1,10 +1,12 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, current_app
 from config import mail, app, db  
 from models import Blog
+from werkzeug.exceptions import BadRequest
 from contactmodels import Contact
 from aboutmodels import History
 from homecontact import HomeContact
 from flask_mail import Mail, Message
+from getintouch import dbGetInTouch
 
 # get all blog data
 @app.route('/blog', methods=["GET"])
@@ -172,7 +174,74 @@ def get_contacthome(contacthome_id):
         "firstname": getContactHome.firstname,
         "email": getContactHome.email,
     }), 200
-      
+    
+# GET IN TOUCH
+
+@app.route('/intouch', methods=["GET"])
+def get_intouch():
+    try:
+        get_in_touches = dbGetInTouch.query.all()
+        get_in_data = [item.to_dict_get_in_touch() for item in get_in_touches]
+        return jsonify({
+            "messages": get_in_data
+        }), 200
+    except Exception as e:
+        current_app.logger.error(f"Error fetching data: {str(e)}")
+        return jsonify({
+            "message": "Internal server error"
+        }), 500
+
+@app.route('/create_intouch', methods=["POST"])
+def create_get_in_touch():
+    try:
+        data = request.get_json()
+        required_fields = ["firstname", "lastname", "email", "subject", "messages"]
+
+        for field in required_fields:
+            if field not in data or not data[field]:
+                raise BadRequest(f"{field.replace('_', ' ').title()} is required")
+
+        firstname = data["firstname"]
+        lastname = data["lastname"]
+        email = data["email"]
+        subject = data["subject"]
+        community = data.get("community", "")
+        purpose = data.get("purpose", "")
+        messages = data["messages"]
+
+        if '@' not in email:
+            raise BadRequest("Invalid email address")
+
+        new_get_touch = dbGetInTouch(
+            firstname=firstname,
+            lastname=lastname,
+            email=email,
+            subject=subject,
+            community=community,
+            purpose=purpose,
+            messages=messages
+        )
+        
+        new_get_touch.save()  
+        return jsonify({
+            "message": "Data successfully created",
+            "data": new_get_touch.to_dict_get_in_touch()
+        }), 201
+
+    except BadRequest as e:
+        current_app.logger.warning(f"BadRequest: {str(e)}")
+        return jsonify({
+            "message": str(e)
+        }), 400
+    except Exception as e:
+        current_app.logger.error(f"Exception: {str(e)}")
+        db.session.rollback()
+        return jsonify({
+            "message": "Internal server error",
+            "details": str(e)
+        }), 500
+
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
