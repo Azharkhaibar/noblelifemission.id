@@ -240,6 +240,8 @@ def create_get_in_touch():
             "message": "Internal server error",
             "details": str(e)
         }), 500
+        
+
 
 
 if __name__ == '__main__':
