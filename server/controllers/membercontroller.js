@@ -37,6 +37,9 @@ exports.getMember = async (req, res) => {
       message: "Fetched member data successfully",
       data: getResponse,
     });
+    
+    console.log(getResponse);
+    
   } catch (error) {
     res.status(500).json({
       success: false,
