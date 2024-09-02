@@ -76,7 +76,7 @@ export const Navbar = () => {
                             zIndex="100"
                             p={0} 
                         >
-                            <NextLink href="/listmember" passHref>
+                            <NextLink href="/about" passHref>
                                 <MenuItem
                                     _hover={{ bg: 'teal.700', color: 'white', borderBottom: '2px solid teal.200' }}
                                     _focus={{ bg: 'teal.700' }}
@@ -87,10 +87,10 @@ export const Navbar = () => {
                                     fontWeight="600"
                                     _active={{ bg: 'teal.600' }} 
                                 >
-                                    List Member
+                                    About us
                                 </MenuItem>
                             </NextLink>
-                            <NextLink href="/about/visi-misi" passHref>
+                            <NextLink href="/listmember" passHref>
                                 <MenuItem
                                     _hover={{ bg: 'teal.700', color: 'white', borderBottom: '2px solid teal.200' }}
                                     _focus={{ bg: 'teal.700' }}
@@ -101,13 +101,13 @@ export const Navbar = () => {
                                     fontWeight="600"
                                     _active={{ bg: 'teal.600' }} 
                                 >
-                                    Visi Misi
+                                    List Member
                                 </MenuItem>
                             </NextLink>
                         </MenuList>
                     </Menu>
 
-                    {['portfolio', 'shop', 'donasi', 'contact'].map((path) => (
+                    {['portfolio', 'shop', 'donasi', 'blog','contact'].map((path) => (
                         <Box
                             key={path}
                             position="relative"

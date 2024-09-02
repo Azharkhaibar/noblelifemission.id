@@ -16,6 +16,7 @@ import {
   FormLabel
 } from '@chakra-ui/react'
 import Navbar from '../ui/navbar'
+import NextLink from 'next/link';
 import { FaHome, FaChevronRight } from 'react-icons/fa'
 import axios, { AxiosError } from 'axios'
 const Contact: React.FC = () => {
@@ -185,7 +186,7 @@ const Contact: React.FC = () => {
             </Box>
           </Box>
         </Box>
-        <Box w="100%" h="150vh" display="flex" justifyContent="center" mt="5%">
+        <Box w="100%" h="50vh" display="flex" justifyContent="center" mt="5%">
           <Box w="75%" borderWidth={0} borderRadius="md" boxShadow="sm">
             <form onSubmit={handleSubmitContactTouch}>
               <Flex mb={4} justify="space-between">
@@ -396,6 +397,135 @@ const Contact: React.FC = () => {
                 </Text>
               </Flex>
             </form>
+          </Box>
+        </Box>
+        <Box w="100%" h="55vh" m="auto" p={4}>
+          <Box
+            w="100%"
+            h="100%"
+            display="flex"
+            px="10%"
+            py="7%"
+            gap={8}
+            justifyContent="space-between"
+          >
+            <Box
+              display="flex"
+              flexDirection="column"
+              p={4}
+              w="40%"
+              h="100%"
+              bg="rgba(0, 0, 0, 0.5)"
+              borderRadius="md"
+              boxShadow="md"
+            >
+              <Heading as="h2" fontSize="40px" mb={2} color="white" fontFamily="Inter, sans-serif">
+                Become an NLM Insider
+              </Heading>
+              <Text mb={4} color="white" fontSize="23px" opacity="0.5" fontFamily="Inter, sans-serif">
+                Subscribe to the newsletter
+              </Text>
+              <Box as="form" display="flex" flexDirection="column" gap={4}>
+                <Input
+                  placeholder="Your First Name"
+                  type="text"
+                  p="6%"
+                  color="white"
+                  borderRadius="10px"
+                  required
+                />
+                <Input
+                  placeholder="Your Email Address"
+                  type="email"
+                  p="6%"
+                  color="white"
+                  borderRadius="10px"
+                  required
+                />
+                <Button colorScheme="teal" type="submit" borderRadius="md">
+                  Subscribe
+                </Button>
+              </Box>
+            </Box>
+
+            <Box w="30%" h="100%" bg="rgba(0, 0, 0, 0.5)" borderRadius="md" p={4}>
+              <Box display="flex" flexDirection="column" pl="40%">
+                <Heading as="h2" size="lg" mb={4} color="white" fontFamily="Inter, sans-serif">
+                  Menu
+                </Heading>
+                <Box color="white">
+                  <NextLink href="/" passHref>
+                    <Text as="a" fontSize="lg" mb={2} display="block">
+                      Home
+                    </Text>
+                  </NextLink>
+                  <NextLink href="/portfolio" passHref>
+                    <Text as="a" fontSize="lg" mb={2} display="block">
+                      Portfolio
+                    </Text>
+                  </NextLink>
+                  <NextLink href="/shop" passHref>
+                    <Text as="a" fontSize="lg" mb={2} display="block">
+                      Shop
+                    </Text>
+                  </NextLink>
+                  <NextLink href="/donasi" passHref>
+                    <Text as="a" fontSize="lg" mb={2} display="block">
+                      Donasi
+                    </Text>
+                  </NextLink>
+                  <NextLink href="/contact" passHref>
+                    <Text as="a" fontSize="lg" mb={2} display="block">
+                      Contact
+                    </Text>
+                  </NextLink>
+                </Box>
+              </Box>
+            </Box>
+
+            <Box w="30%" h="100%" bg="rgba(0, 0, 0, 0.5)" borderRadius="md" p={4}>
+              <Box display="flex" flexDirection="column">
+                <Heading as="h2" size="lg" mb={4} color="white" fontFamily="Inter, sans-serif">
+                  Additional Menu
+                </Heading>
+                <Box color="white">
+                  <NextLink href="/" passHref>
+                    <Text as="a" fontSize="lg" mb={2} display="block">
+                      Sertifikasi
+                    </Text>
+                  </NextLink>
+                  <NextLink href="/portfolio" passHref>
+                    <Text as="a" fontSize="lg" mb={2} display="block">
+                      Visi dan Misi
+                    </Text>
+                  </NextLink>
+                  <NextLink href="/shop" passHref>
+                    <Text as="a" fontSize="lg" mb={2} display="block">
+                      Blog
+                    </Text>
+                  </NextLink>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+          <Heading textAlign="center" color="white" fontSize="170px" fontFamily="Inter, sans-serif">
+            NobleLifeMission
+          </Heading>
+          <Box
+            borderTop="1px solid #3d3019"
+            w="1375px"
+            m="auto"
+            h="20vh"
+            p={4}
+            textAlign="center"
+            color="white"
+            bg="rgba(0, 0, 0, 0.7)"
+          >
+            <Box display="flex" justifyContent="space-between" alignItems="center" gap={2}>
+              <Text fontSize="sm">Copyright © 2024 • noblelifemission</Text>
+              <Text>Build with: <span style={{ color: "orange" }}>Next, typescript, express, flask, react</span></Text>
+              <Text fontSize="sm">Made with ❤ by Someone</Text>
+            </Box>
           </Box>
         </Box>
       </Box>
