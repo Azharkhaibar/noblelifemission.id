@@ -153,7 +153,7 @@ const About: React.FC = () => {
                           alignItems="center"
                         >
                           <Box mr="12px" fontSize="24px" color="orange">
-                            <value.icon /> {/* Menampilkan ikon */}
+                            <value.icon /> 
                           </Box>
                           <Text fontSize="18px" textAlign="left">{value.label}</Text>
                         </Box>
@@ -253,26 +253,96 @@ const About: React.FC = () => {
 
       <Box
         w="100%"
-        h="70vh"
-        bg="grey"
-      >
-      </Box>
-
-      <Box w="100%"
-        h="100vh"
-        bg="black"
+        h="80vh"
+        bgImage="/asset/Frame 1.jpg"
+        bgRepeat="no-repeat"
+        bgSize="cover"
         pos="relative"
       >
-        <Heading fontSize="100px" color="orange" pos="absolute"
+        <Box
+          bgImage="radial-gradient(circle, rgba(0, 0, 0, 0.6) 0%, transparent 10%, black 100%)"
+          pos="absolute"
+          w="100%"
+          h="100%"
+        >
+          <Heading
+            fontSize="40px"
+            w="1000px"
+            color="white"
+            textAlign="center"
+            m="auto"
+            pt="12%"
+            fontFamily="Inter, sans-serif"
+          >
+            "Hidup bukan hanya tentang mengejar kebahagiaan, melainkan tentang merasakan dan memahami berbagai emosi. Dengan sahabat di sisimu, kamu bisa menghadapi segala tantangan hidup bersama."
+          </Heading>
+          <Box display="flex" alignItems="center" justifyContent="center"
+            gap="20px"
+            pt="3%"
+          >
+            <Image src='/images/member/nopal.jpg' alt="nopal"
+              w="60px"
+              h="60px"
+              borderRadius="50%"
+            />
+            <Text color="white" fontSize="20px"
+              fontWeight="600"
+            >Naufal Luthfi</Text>
+          </Box>
+        </Box>
+      </Box>
+      <Box w="100%" h="140vh" pos="relative">
+        <Box color="white" w="50%" m="auto" pos="relative" zIndex="1">
+          <Text fontSize="30px" fontFamily="Inter, sans-serif">
+            Hidup sering kali dipahami sebagai sebuah perjalanan menuju kebahagiaan,
+            seolah-olah kebahagiaan adalah tujuan akhir yang harus kita capai. Namun,
+            kenyataannya, hidup jauh lebih kompleks dan mendalam daripada sekadar mengejar
+            perasaan senang. Hidup adalah tentang merasakan dan memahami seluruh spektrum
+            emosi yang kita alami—kebahagiaan, kesedihan, kegembiraan, ketakutan, dan
+            semuanya di antaranya. Setiap emosi memberikan pelajaran yang berharga dan
+            memperkaya pengalaman kita.
+            <br /><br />
+            Di tengah perjalanan ini, kita tidak seharusnya berjalan sendirian. Kehadiran
+            sahabat, keluarga, dan orang-orang yang peduli, memberikan dukungan dan kekuatan
+            yang sangat dibutuhkan saat kita menghadapi tantangan hidup. Mereka membantu kita
+            menemukan makna dalam setiap momen, baik yang manis maupun yang pahit.
+            <br /><br />
+            Inilah yang melandasi lahirnya NobleLifeMission. Kami percaya bahwa hidup yang
+            bermakna bukan hanya soal mencari kebahagiaan, melainkan tentang memahami setiap
+            pengalaman, menerima semua emosi, dan menjalaninya bersama orang-orang yang kita
+            cintai. NobleLifeMission hadir untuk mendukung setiap individu dalam menemukan
+            tujuan hidup mereka, merangkul setiap perasaan, dan membangun kehidupan yang
+            penuh makna dan kebersamaan.
+          </Text>
+        </Box>
+        <Image
+          src='/asset/pngwing.com (9).png'
+          alt="png"
+          pos="absolute"
+          top="10%"
+          w="90%"
+          h="90%"
+          zIndex="0"
+          opacity="1"
+          filter="invert(20%) sepia(100%) saturate(100%) hue-rotate(360deg) brightness(100%)"
+        />
+        <Heading
+          fontSize="100px"
+          color="orange"
+          pos="absolute"
           bottom="0"
           mx="2%"
           my="-1.5%"
-        >OUR FOUNDER
+          zIndex="2"
+        >
+          OUR DEVELOPER
         </Heading>
       </Box>
 
+
       <Box w="100%" h="100vh"
         bg="orange"
+        borderRadius="0px 100px 0px 0px"
       >
 
       </Box>
