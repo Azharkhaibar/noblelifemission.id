@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Box,
     Flex,
@@ -15,9 +15,41 @@ import {
 } from '@chakra-ui/react';
 import { ChevronDownIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
+
 export const Navbar = () => {
+    const [showNavbar, setShowNavbar] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY) {
+            // Scrolling down
+            setShowNavbar(false);
+        } else {
+            // Scrolling up
+            setShowNavbar(true);
+        }
+        setLastScrollY(currentScrollY);
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [lastScrollY]);
+
     return (
-        <Box w="100%" h="8vh" bg="transparent" px="85">
+        <Box
+            w="100%"
+            h="8vh"
+            bg="transparent"
+            px="85"
+            position="fixed"
+            top={showNavbar ? "0" : "-8vh"}
+            transition="top 0.3s ease"
+            zIndex="1000"
+        >
             <Flex alignItems="center" justifyContent="space-between" h="100%">
                 <Heading size="lg" color="white">
                     NLM
@@ -26,7 +58,7 @@ export const Navbar = () => {
                     <Box
                         position="relative"
                         display="inline-block"
-                        _hover={{ color: 'teal.200' }} 
+                        _hover={{ color: 'teal.200' }}
                     >
                         <NextLink href="/main" passHref>
                             <Link
@@ -36,7 +68,7 @@ export const Navbar = () => {
                                 bg="white"
                                 py="6"
                                 px="5"
-                                _hover={{ textDecoration: 'none' }} 
+                                _hover={{ textDecoration: 'none' }}
                             >
                                 Home
                             </Link>
@@ -49,8 +81,8 @@ export const Navbar = () => {
                             height="2px"
                             bg="teal.200"
                             transform="scaleX(0)"
-                            transformOrigin="bottom left" 
-                            transition="transform 0.3s ease" 
+                            transformOrigin="bottom left"
+                            transition="transform 0.3s ease"
                         />
                     </Box>
                     <Menu>
@@ -74,18 +106,18 @@ export const Navbar = () => {
                             color="white"
                             minW="200px"
                             zIndex="100"
-                            p={0} 
+                            p={0}
                         >
                             <NextLink href="/about" passHref>
                                 <MenuItem
                                     _hover={{ bg: 'teal.700', color: 'white', borderBottom: '2px solid teal.200' }}
                                     _focus={{ bg: 'teal.700' }}
                                     bg="white"
-                                    p={4} 
+                                    p={4}
                                     border="none"
                                     color="black"
                                     fontWeight="600"
-                                    _active={{ bg: 'teal.600' }} 
+                                    _active={{ bg: 'teal.600' }}
                                 >
                                     About us
                                 </MenuItem>
@@ -99,7 +131,7 @@ export const Navbar = () => {
                                     bg="white"
                                     color="black"
                                     fontWeight="600"
-                                    _active={{ bg: 'teal.600' }} 
+                                    _active={{ bg: 'teal.600' }}
                                 >
                                     List Member
                                 </MenuItem>
@@ -107,19 +139,19 @@ export const Navbar = () => {
                         </MenuList>
                     </Menu>
 
-                    {['portfolio', 'shop', 'donasi', 'blog','contact'].map((path) => (
+                    {['portfolio', 'shop', 'donasi', 'blog', 'contact'].map((path) => (
                         <Box
                             key={path}
                             position="relative"
                             display="inline-block"
-                            _hover={{ color: 'teal.200' }} 
+                            _hover={{ color: 'teal.200' }}
                         >
                             <NextLink href={`/${path}`} passHref>
                                 <Link
                                     color="white"
                                     fontSize="lg"
                                     fontWeight="medium"
-                                    _hover={{ textDecoration: 'none' }} 
+                                    _hover={{ textDecoration: 'none' }}
                                 >
                                     {path.charAt(0).toUpperCase() + path.slice(1)}
                                 </Link>
@@ -131,9 +163,9 @@ export const Navbar = () => {
                                 width="100%"
                                 height="2px"
                                 bg="teal.200"
-                                transform="scaleX(0)" 
-                                transformOrigin="bottom left" 
-                                transition="transform 0.3s ease" 
+                                transform="scaleX(0)"
+                                transformOrigin="bottom left"
+                                transition="transform 0.3s ease"
                             />
                         </Box>
                     ))}

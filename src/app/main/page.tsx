@@ -24,12 +24,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { blogDummy } from '../data/blog';
 import NextLink from 'next/link';
-import Link from 'next/link';
-import MemberCard from '../components/card';
 import Slider from 'react-slick';
 import useOnScreen from '../components/scrolldetection';
 import AnimatedButton, { AnimatedButtonStyled, AnimatedButtonStyled2 } from '../components/btnmain';
-import { Navbar } from '../ui/navbar'
+import Navbar from '../ui/navbar';
 const Main: React.FC = () => {
   const [isShining, setIsShining] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -91,9 +89,11 @@ const Main: React.FC = () => {
   };
 
   return (
-    <Box bg="#000000" className='content'>
+    <Box bg="black" 
+      className="content"
+    >
       <Navbar />
-      <Box w="98%" h="300vh" bg="#000000" m="auto">
+      <Box w="98%" h="700vh" bg="#000000" m="auto">
         <Box
           w="100%"
           h="85vh"
