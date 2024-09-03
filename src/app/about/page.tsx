@@ -19,14 +19,23 @@ import PictSlider from '../components/pictslider'
 import { FaLightbulb, FaLeaf, FaCheckCircle, FaRocket, FaUserTie, FaShieldAlt, FaHandshake, FaEye, FaRedo } from 'react-icons/fa';
 
 const About: React.FC = () => {
-  const [ activeTab, setActiveTab ] = useState('vision')
+  const [ activeTab, setActiveTab ] = useState('Vision')
   return (
-    <Box w="100%" h="300vh" bg="black">
+    <Box w="100%" bg="black">
       <Navbar />
-      <Box w="100%" h="100%" bg="black">
+      <Box w="100%" h="100%" bg="black" pos="relative">
+        <Box
+          w="500px"
+          h="500px"
+          left="35%"
+          top="17%"
+          filter="blur(300px)"
+          bg="#906b12"
+          pos="absolute"
+        ></Box>
         <Box textAlign="center" w="70%" m="auto" pt="7%" color="white">
           <Heading fontSize="80px" fontFamily="Inter, sans-serif"
-            zIndex="1"
+            zIndex="99"
             bgGradient="linear(to-r, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7))"
             bgClip="text"
           >Building community can be tough, but you don’t need to do it alone</Heading>
@@ -54,11 +63,11 @@ const About: React.FC = () => {
             color="white"
             bottom="-5%"
             fontSize="130px"
-            right="7%"
+            right="3%"
           >Vision & Mission</Heading>
         </Box>
 
-        <Box bg="white" w="100%" h="117vh" borderRadius="80px 0px 0px 0px" overflow="hidden">
+        <Box bg="white" w="100%" h="105vh" borderRadius="80px 0px 0px 0px" overflow="hidden">
           <Box w="100%" h="auto" m="auto"
 
           >
@@ -240,11 +249,26 @@ const About: React.FC = () => {
             </Heading>
           </Box>
         </Box>
+      </Box>
+
+      <Box
+        w="100%"
+        h="70vh"
+        bg="grey"
+      >
+      </Box>
+
+      <Box w="100%"
+        h="100vh"
+        bg="black"
+        pos="relative"
+      >
         <Heading fontSize="100px" color="orange" pos="absolute"
           bottom="0"
-          mx="10%"
-          my="-6%"
-        >OUR FOUNDER</Heading>
+          mx="2%"
+          my="-1.5%"
+        >OUR FOUNDER
+        </Heading>
       </Box>
 
       <Box w="100%" h="100vh"

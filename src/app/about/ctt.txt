@@ -1,0 +1,5 @@
+<Heading fontSize="100px" color="orange" pos="absolute"
+          bottom="0"
+          mx="10%"
+          my="-6%"
+        >OUR FOUNDER</Heading>
