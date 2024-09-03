@@ -17,7 +17,7 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 export const Navbar = () => {
     return (
-        <Box w="100%" h="8vh" bgGradient="linear(to left, black, #202020)" px="85">
+        <Box w="100%" h="8vh" bg="transparent" px="85">
             <Flex alignItems="center" justifyContent="space-between" h="100%">
                 <Heading size="lg" color="white">
                     NLM

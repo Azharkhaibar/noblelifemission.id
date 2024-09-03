@@ -378,11 +378,11 @@ const Main: React.FC = () => {
 
         {/* MEET TEAM */}
 
-        <Box w="100%" h="90vh">
+        <Box w="100%" h="110vh">
           <Box m="auto" textAlign="center" color="white">
             <Heading fontFamily="Inter, sans-serif" fontSize="50px">Meet the team driving Our Vision and <br />Mission forward</Heading>
           </Box>
-          <Box w="100%" h="100%" display="flex" m="auto" justifyContent="center" pt="4%" pos="relative">
+          <Box w="100%" h="80%" display="flex" m="auto" justifyContent="center" pt="4%" pos="relative">
             <Image
               src='/images/bg/pngwing.com (7).png'
               w="100%"

@@ -44,7 +44,7 @@ const Portfolio = () => {
     };
   }, []);
   return (
-    <Box bg="#000000" h="360vh">
+    <Box bg="#000000" h="360vh" pos="relative">
       <Navbar />
       <Box
         pos="relative"
