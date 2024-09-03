@@ -391,6 +391,7 @@ const Main: React.FC = () => {
               top="0"
               zIndex="0"
               opacity="0.1"
+              alt='png'
               filter="invert(10%) sepia(100%) saturate(100%) hue-rotate(360deg) brightness(100%)"
             />
 

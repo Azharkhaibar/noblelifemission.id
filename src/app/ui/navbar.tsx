@@ -43,12 +43,15 @@ export const Navbar = () => {
         <Box
             w="100%"
             h="8vh"
-            bg="transparent"
             px="85"
             position="fixed"
             top={showNavbar ? "0" : "-8vh"}
             transition="top 0.3s ease"
             zIndex="1000"
+            bg="rgba(0, 0, 0, 0.4)" 
+            backdropFilter="blur(10px)"  
+            boxShadow="0 4px 30px rgba(0, 0, 0, 0.2)" 
+          
         >
             <Flex alignItems="center" justifyContent="space-between" h="100%">
                 <Heading size="lg" color="white">
