@@ -14,6 +14,7 @@ import {
  import { FaChevronRight, FaHome } from 'react-icons/fa'
  import Navbar from '../ui/navbar'
  import { dummyBlog } from '../data/blog'
+import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 const Blog: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -104,14 +105,14 @@ const Blog: React.FC = () => {
             >
               {currentCards.map((dummy, index) => (
                 <Box key={index}>
-                  <Box w="430px" h="400px">
+                  <Box w="430px" h="450px">
                     <Image src={dummy.url} alt="dummy" w="100%" h="290px" />
                     <Box color="white" p="3">
                       <Box display="flex" alignItems="center" justifyContent="space-between" mb="2">
                         <Text>{dummy.kategori}</Text>
                         <Text>{dummy.tanggal}</Text>
                       </Box>
-                      <Heading fontSize="lg" mb="2">{dummy.Headline}</Heading>
+                      <Heading fontSize="35px" mb="2">{dummy.Headline}</Heading>
                       <Text color="blue.400" cursor="pointer">Read more</Text>
                     </Box>
                   </Box>
@@ -119,23 +120,24 @@ const Blog: React.FC = () => {
               ))}
             </Box>
 
-            {/* Pagination Controls */}
-            <Flex justifyContent="center" mt="6">
-              <Button
+            <Flex justifyContent="center" mt="6" alignItems="center">
+              <IconButton
+                icon={<ChevronLeftIcon />}
                 onClick={handlePreviousPage}
                 disabled={currentPage === 1}
-                colorScheme="teal"
+                bg="orange"
                 mr="4"
-              >
-                Previous
-              </Button>
-              <Button
+                aria-label="Previous Page"
+              />
+              <Text mx="2" color="white">{`${currentPage} / ${totalPagesBlogCard}`}</Text>
+              <IconButton
+                icon={<ChevronRightIcon />}
                 onClick={handleNextPagesBlog}
                 disabled={currentPage === totalPagesBlogCard}
-                colorScheme="teal"
-              >
-                Next
-              </Button>
+                bg="orange"
+                ml="4"
+                aria-label="Next Page"
+              />
             </Flex>
           </Box>
         </Box>

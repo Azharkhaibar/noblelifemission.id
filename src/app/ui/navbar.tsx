@@ -142,7 +142,7 @@ export const Navbar = () => {
                         </MenuList>
                     </Menu>
 
-                    {['portfolio', 'shop', 'donasi', 'blog', 'contact'].map((path) => (
+                    {['portfolio', 'shop', 'donasi', 'community', 'contact'].map((path) => (
                         <Box
                             key={path}
                             position="relative"
