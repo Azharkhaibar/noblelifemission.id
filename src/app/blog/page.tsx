@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { 
   Box,
   Heading,
@@ -8,13 +8,31 @@ import {
   IconButton,
   Flex,
   Icon,
-  Input
+  Input,
+  Button
  } from '@chakra-ui/react'
  import { FaChevronRight, FaHome } from 'react-icons/fa'
  import Navbar from '../ui/navbar'
  import { dummyBlog } from '../data/blog'
 
 const Blog: React.FC = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const cardsPerPage = 9;
+  const indexOfLastCard = currentPage * cardsPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+  const currentCards = dummyBlog.slice(indexOfFirstCard, indexOfLastCard);
+  const totalPagesBlogCard = Math.ceil(dummyBlog.length / cardsPerPage);
+  const handleNextPagesBlog = () => {
+    if (currentPage < totalPagesBlogCard) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
   return (
     <Box w="100%" bg="black">
       <Navbar />
@@ -77,32 +95,48 @@ const Blog: React.FC = () => {
           </Box>
 
           <Box w="100%" h="100%" pt="3%">
-            <Box display="flex" alignItems="center"
-              flexWrap="wrap" justifyContent="center"
+            <Box
+              display="flex"
+              alignItems="center"
+              flexWrap="wrap"
+              justifyContent="center"
               gap="19px"
             >
-              {dummyBlog.map((dummy, index) => (
+              {currentCards.map((dummy, index) => (
                 <Box key={index}>
-                  <Box
-                    w="430px"
-                    h="400px"
-                  >
-                    <Image src={dummy.url} alt='dummy'
-                      w="100%"
-                      h="290px"
-                    />
-                    <Box color="white">
-                      <Box display="flex" alignItems="center">
+                  <Box w="430px" h="400px">
+                    <Image src={dummy.url} alt="dummy" w="100%" h="290px" />
+                    <Box color="white" p="3">
+                      <Box display="flex" alignItems="center" justifyContent="space-between" mb="2">
                         <Text>{dummy.kategori}</Text>
                         <Text>{dummy.tanggal}</Text>
                       </Box>
-                      <Heading>{dummy.Headline}</Heading>
-                      <Text>Read more</Text>
+                      <Heading fontSize="lg" mb="2">{dummy.Headline}</Heading>
+                      <Text color="blue.400" cursor="pointer">Read more</Text>
                     </Box>
                   </Box>
                 </Box>
               ))}
             </Box>
+
+            {/* Pagination Controls */}
+            <Flex justifyContent="center" mt="6">
+              <Button
+                onClick={handlePreviousPage}
+                disabled={currentPage === 1}
+                colorScheme="teal"
+                mr="4"
+              >
+                Previous
+              </Button>
+              <Button
+                onClick={handleNextPagesBlog}
+                disabled={currentPage === totalPagesBlogCard}
+                colorScheme="teal"
+              >
+                Next
+              </Button>
+            </Flex>
           </Box>
         </Box>
       </Box>
