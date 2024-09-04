@@ -49,7 +49,7 @@ export const Navbar = () => {
             transition="top 0.3s ease"
             zIndex="1000"
             bg="rgba(0, 0, 0, 0.4)" 
-            backdropFilter="blur(10px)"  
+            backdropFilter="blur(8px)"  
             boxShadow="0 4px 30px rgba(0, 0, 0, 0.2)" 
           
         >
