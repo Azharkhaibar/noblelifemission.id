@@ -7,6 +7,7 @@ from aboutmodels import History
 from homecontact import HomeContact
 from flask_mail import Mail, Message
 from getintouch import dbGetInTouch
+from articlemodels import ArticleModels
 
 # get all blog data
 @app.route('/blog', methods=["GET"])
@@ -240,7 +241,20 @@ def create_get_in_touch():
             "message": "Internal server error",
             "details": str(e)
         }), 500
-        
+
+@app.route('/article', methods=["GET"])
+def article_GET():
+    try:
+        get_article_data = ArticleModels.query.all()
+        get_saved_article = [item.blog_models_to_json() for item in get_article_data]
+        return jsonify({
+            "message": get_saved_article
+        }), 200
+    except Exception as e:
+        current_app.logger.error(f"error fetching data: {str(e)}")
+        return jsonify({
+            "messages": "internal server error"
+        })
 
 
 

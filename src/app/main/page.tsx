@@ -12,6 +12,7 @@ import {
   Button,
   Input
 } from '@chakra-ui/react'
+import { motion, useAnimation, useInView } from 'framer-motion'
 import '../design/shinetext.scss'
 import SocialMediaIcons from '../icons/verticalicons';
 import { PhoneIcon } from '@chakra-ui/icons';
@@ -28,12 +29,19 @@ import Slider from 'react-slick';
 import useOnScreen from '../components/scrolldetection';
 import AnimatedButton, { AnimatedButtonStyled, AnimatedButtonStyled2 } from '../components/btnmain';
 import Navbar from '../ui/navbar';
+import IncrementText from '../components/incrementtext'
 const Main: React.FC = () => {
   const [isShining, setIsShining] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const isVisible = useOnScreen(headingRef);
   const [ firstnameContact, setFirstnameContact ] = useState('')
   const [ emailContact, setEmailContact ] = useState('')
+  const [ numberMotion, setNumberMotion ] = useState(0);
+  const controlsAnimation = useAnimation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true
+  })
   const handleSubmitHomeContact = async (e: React.FormEvent) => {
     try {
       console.log('sending data:', {
@@ -118,15 +126,17 @@ const Main: React.FC = () => {
             bgGradient="linear(to-t, black, transparent)"
             zIndex="1"
           />
-          <Stack spacing={6} maxW="lg" mb="5%">
+          <Stack spacing={6} maxW="900px" mb="5%">
             <Heading
               as="h1"
-              fontSize={{ base: '3xl', md: '5xl', lg: '70px' }}
+              textShadow="lg"
+              fontSize={{ base: '3xl', md: '5xl', lg: '100px' }}
               color="white"
               fontWeight="bold"
               letterSpacing="wide"
+              fontFamily="Inter, sans-serif"
             >
-              We Are <Text as="span" bgGradient="linear(to-r, orange.300, yellow.400)" bgClip="text">NLM</Text>
+              We Are <Text as="span" bgGradient="linear(to-r, orange.300, yellow.400)" bgClip="text">NobleLifeMission</Text>
             </Heading>
             <Text
               fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
@@ -405,15 +415,21 @@ const Main: React.FC = () => {
               zIndex="999"
               w={"20%"}>
               <Box color="white" zIndex="999">
-                <Heading fontSize="60px">10+</Heading>
+                <Heading fontSize="60px">
+                  <IncrementText endNumber={10} />+
+                </Heading>
                 <Text fontSize="20px">Reviews</Text>
               </Box>
               <Box color="white" zIndex="999">
-                <Heading fontSize="60px">5+</Heading>
+                <Heading fontSize="60px">
+                  <IncrementText endNumber={5} />+
+                </Heading>
                 <Text fontSize="20px">Client <br />Colaboration</Text>
               </Box>
               <Box color="white" zIndex="999">
-                <Heading fontSize="60px">700+</Heading>
+                <Heading fontSize="60px">
+                  <IncrementText endNumber={700} />+
+                </Heading>
                 <Text fontSize="20px">Certification</Text>
               </Box>
             </Box>
@@ -470,7 +486,9 @@ const Main: React.FC = () => {
               
             >
               <Box color="white" mb={4} textAlign="center">
-                <Heading fontSize="60px">100+</Heading>
+                <Heading fontSize="60px">
+                  <IncrementText endNumber={10} />+
+                </Heading>
                 <Text fontSize="20px">Contribution</Text>
               </Box>
 
@@ -505,7 +523,9 @@ const Main: React.FC = () => {
               </Box>
 
               <Box color="white">
-                <Heading fontSize="60px">500+</Heading>
+                <Heading fontSize="60px">
+                  <IncrementText endNumber={500} />+
+                </Heading>
                 <Text fontSize="20px">Creation</Text>
               </Box>
             </Box>

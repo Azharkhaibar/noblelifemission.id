@@ -48,10 +48,10 @@ export const Navbar = () => {
             top={showNavbar ? "0" : "-8vh"}
             transition="top 0.3s ease"
             zIndex="1000"
-            bg="rgba(0, 0, 0, 0.4)" 
-            backdropFilter="blur(8px)"  
-            boxShadow="0 4px 30px rgba(0, 0, 0, 0.2)" 
-          
+            bg="rgba(0, 0, 0, 0.4)"
+            backdropFilter="blur(8px)"
+            boxShadow="0 4px 30px rgba(0, 0, 0, 0.2)"
+
         >
             <Flex alignItems="center" justifyContent="space-between" h="100%">
                 <Heading size="lg" color="white">
@@ -143,34 +143,90 @@ export const Navbar = () => {
                     </Menu>
 
                     {['portfolio', 'shop', 'donasi', 'community', 'contact'].map((path) => (
-                        <Box
-                            key={path}
-                            position="relative"
-                            display="inline-block"
-                            _hover={{ color: 'teal.200' }}
-                        >
-                            <NextLink href={`/${path}`} passHref>
-                                <Link
+                        path === 'community' ? (
+                            <Menu key={path}>
+                                <MenuButton
+                                    as={Button}
+                                    variant="link"
+                                    colorScheme="white"
+                                    fontWeight="bold"
                                     color="white"
-                                    fontSize="lg"
-                                    fontWeight="medium"
-                                    _hover={{ textDecoration: 'none' }}
+                                    rightIcon={<ChevronDownIcon />}
+                                    _hover={{ textDecoration: 'none', color: 'teal.200' }}
+                                    _active={{ bg: 'transparent' }}
                                 >
-                                    {path.charAt(0).toUpperCase() + path.slice(1)}
-                                </Link>
-                            </NextLink>
+                                    Community
+                                </MenuButton>
+                                <MenuList
+                                    bg="blue"
+                                    border="none"
+                                    borderRadius="md"
+                                    boxShadow="md"
+                                    color="white"
+                                    minW="200px"
+                                    zIndex="100"
+                                    p={0}
+                                >
+                                    <NextLink href="/blog" passHref>
+                                        <MenuItem
+                                            _hover={{ bg: 'teal.700', color: 'white', borderBottom: '2px solid teal.200' }}
+                                            _focus={{ bg: 'teal.700' }}
+                                            p={4}
+                                            border="none"
+                                            bg="white"
+                                            color="black"
+                                            fontWeight="600"
+                                            _active={{ bg: 'teal.600' }}
+                                        >
+                                            Blog
+                                        </MenuItem>
+                                    </NextLink>
+                                    <NextLink href="/faq" passHref>
+                                        <MenuItem
+                                            _hover={{ bg: 'teal.700', color: 'white', borderBottom: '2px solid teal.200' }}
+                                            _focus={{ bg: 'teal.700' }}
+                                            p={4}
+                                            border="none"
+                                            bg="white"
+                                            color="black"
+                                            fontWeight="600"
+                                            _active={{ bg: 'teal.600' }}
+                                        >
+                                            FAQ
+                                        </MenuItem>
+                                    </NextLink>
+                                </MenuList>
+                            </Menu>
+                        ) : (
                             <Box
-                                position="absolute"
-                                bottom={0}
-                                left={0}
-                                width="100%"
-                                height="2px"
-                                bg="teal.200"
-                                transform="scaleX(0)"
-                                transformOrigin="bottom left"
-                                transition="transform 0.3s ease"
-                            />
-                        </Box>
+                                key={path}
+                                position="relative"
+                                display="inline-block"
+                                _hover={{ color: 'teal.200' }}
+                            >
+                                <NextLink href={`/${path}`} passHref>
+                                    <Link
+                                        color="white"
+                                        fontSize="lg"
+                                        fontWeight="medium"
+                                        _hover={{ textDecoration: 'none' }}
+                                    >
+                                        {path.charAt(0).toUpperCase() + path.slice(1)}
+                                    </Link>
+                                </NextLink>
+                                <Box
+                                    position="absolute"
+                                    bottom={0}
+                                    left={0}
+                                    width="100%"
+                                    height="2px"
+                                    bg="teal.200"
+                                    transform="scaleX(0)"
+                                    transformOrigin="bottom left"
+                                    transition="transform 0.3s ease"
+                                />
+                            </Box>
+                        )
                     ))}
                 </HStack>
                 <Box display="flex" gap="4" alignItems="center">
