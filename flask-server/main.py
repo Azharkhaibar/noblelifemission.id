@@ -8,6 +8,7 @@ from homecontact import HomeContact
 from flask_mail import Mail, Message
 from getintouch import dbGetInTouch
 from articlemodels import ArticleModels
+from eventmodels import dbEventDetail
 
 # get all blog data
 @app.route('/blog', methods=["GET"])
@@ -255,9 +256,48 @@ def article_GET():
         return jsonify({
             "messages": "internal server error"
         })
+        
+# EVENT DETAIL BACKEND AND API GATEWAY (CALLED)
 
+@app.route('/event', methods=["GET"])
+def events_get_data():
+    try:
+        get_event_data = dbEventDetail.query.all()
+        get_saved_event_detail = [item.to_dict_events_detail_json() for item in get_event_data]
+        
+        if not get_saved_event_detail:  # Jika daftar kosong
+            return jsonify({
+                "message": "Data belum adai!"
+            }), 404
+        
+        return jsonify({
+            "message": "Data fetched successfully",
+            "data": get_saved_event_detail
+        }), 200
+    except Exception as e:
+        current_app.logger.error(f"Error fetching data: {str(e)}")
+        return jsonify({
+            "message": "Internal server error"
+        }), 500
 
+@app.route('/event/<int:event_detail_id>', methods=["GET"])
+def events_get_data_by_id(event_detail_id):
+    get_event_id = dbEventDetail.query.get(event_detail_id)
+    if not get_event_id:
+        return jsonify({
+            "message": "Event detail ID not found"
+        }), 404  # Gunakan 404 untuk not found
 
+    return jsonify({
+        "id": get_event_id.id,
+        "name_events": get_event_id.name_events,
+        "declare_events_begin": get_event_id.declare_event_begin,
+        "category_events": get_event_id.category_event,
+        "purpose_events": get_event_id.purpose_event,
+        "community_event": get_event_id.community_event
+    }), 200
+
+    
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()

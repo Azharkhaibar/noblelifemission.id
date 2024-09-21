@@ -11,7 +11,7 @@ const ManualAccordion = () => {
     };
 
     const items = [
-        { title: "Accordion Item 1", content: "This is the content for Accordion Item 1." },
+        { title: "Accordion Item 1", content: "This is the content for Accordion Item 1. This is the content for Accordion Item 1. This is the content for Accordion Item 1. This is the content for Accordion Item 1." },
         { title: "Accordion Item 2", content: "This is the content for Accordion Item 2." },
         { title: "Accordion Item 3", content: "This is the content for Accordion Item 3." },
         { title: "Accordion Item 4", content: "This is the content for Accordion Item 3." },

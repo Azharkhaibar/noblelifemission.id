@@ -1,8 +1,26 @@
+"use client"
 import React from 'react'
+import { 
+  Box,
+  Heading,
+  Text,
+  Container,
+  Image,
+  Flex
+} from '@chakra-ui/react';
+import Navbar from '../ui/navbar';
 
 const Donasi = () => {
   return (
-    <div>page</div>
+    <Box bg="black">
+      <Navbar />
+      <Box h="400vh"
+        w="100%"
+        bg="black"
+      >
+
+      </Box>
+    </Box>
   )
 }
 
